@@ -49,3 +49,4 @@ $ linuxkit run -publish 8080:80/tcp linuxkit
 ```
 
 接下来在浏览器中打开 `127.0.0.1:8080` 即可看到 nginx 默认页面。
+

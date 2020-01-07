@@ -1,4 +1,4 @@
-# 使用 Rails
+# 实战 Rails
 
 > 本小节内容适合 `Ruby` 开发人员阅读。
 
@@ -8,7 +8,7 @@
 
 首先，因为应用将要运行在一个满足所有环境依赖的 Docker 容器里面，那么我们可以通过编辑 `Dockerfile` 文件来指定 Docker 容器要安装内容。内容如下：
 
-```docker
+```text
 FROM ruby
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 RUN mkdir /myapp
@@ -18,7 +18,7 @@ RUN bundle install
 ADD . /myapp
 ```
 
-以上内容指定应用将使用安装了 Ruby、Bundler 以及其依赖件的镜像。更多关于如何编写 Dockerfile 文件的信息可以查看 [Dockerfile 使用](../image/dockerfile/README.md)。
+以上内容指定应用将使用安装了 Ruby、Bundler 以及其依赖件的镜像。更多关于如何编写 Dockerfile 文件的信息可以查看 [Dockerfile 使用](../image/dockerfile/)。
 
 下一步，我们需要一个引导加载 Rails 的文件 `Gemfile` 。 等一会儿它还会被 `rails new` 命令覆盖重写。
 
@@ -55,7 +55,7 @@ services:
 $ docker-compose run web rails new . --force --database=postgresql --skip-bundle
 ```
 
-`Compose` 会先使用 `Dockerfile` 为 web 服务创建一个镜像，接着使用这个镜像在容器里运行 `rails new ` 和它之后的命令。一旦这个命令运行完后，应该就可以看一个崭新的应用已经生成了。
+`Compose` 会先使用 `Dockerfile` 为 web 服务创建一个镜像，接着使用这个镜像在容器里运行 `rails new` 和它之后的命令。一旦这个命令运行完后，应该就可以看一个崭新的应用已经生成了。
 
 ```bash
 $ ls
@@ -78,8 +78,7 @@ gem 'therubyracer', platforms: :ruby
 $ docker-compose build
 ```
 
-应用现在就可以启动了，但配置还未完成。Rails 默认读取的数据库目标是 `localhost` ，我们需要手动指定容器的 `db` 。同样的，还需要把用户名修改成和 postgres 镜像预定的一致。
-打开最新生成的 `database.yml` 文件。用以下内容替换：
+应用现在就可以启动了，但配置还未完成。Rails 默认读取的数据库目标是 `localhost` ，我们需要手动指定容器的 `db` 。同样的，还需要把用户名修改成和 postgres 镜像预定的一致。 打开最新生成的 `database.yml` 文件。用以下内容替换：
 
 ```bash
 development: &default
@@ -117,3 +116,4 @@ $ docker-compose run web rake db:create
 ```
 
 这个 web 应用已经开始在你的 docker 守护进程里面监听着 3000 端口了。
+

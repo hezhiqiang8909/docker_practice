@@ -67,8 +67,8 @@ $ docker port nostalgic_morse 5000
 ```
 
 注意：
-* 容器有自己的内部网络和 ip 地址（使用 `docker inspect` 可以获取所有的变量，Docker 还可以有一个可变的网络配置。）
 
+* 容器有自己的内部网络和 ip 地址（使用 `docker inspect` 可以获取所有的变量，Docker 还可以有一个可变的网络配置。）
 * `-p` 标记可以多次使用来绑定多个端口
 
 例如
@@ -80,3 +80,4 @@ $ docker run -d \
     training/webapp \
     python app.py
 ```
+

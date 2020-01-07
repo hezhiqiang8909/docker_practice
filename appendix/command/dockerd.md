@@ -1,8 +1,8 @@
-# 服务端命令(dockerd)
+# 服务端命令 \(dockerd\)
 
 ## dockerd 命令选项
 
-* `--api-cors-header=""`：CORS 头部域，默认不允许 CORS，要允许任意的跨域访问，可以指定为 "*"；
+* `--api-cors-header=""`：CORS 头部域，默认不允许 CORS，要允许任意的跨域访问，可以指定为 "\*"；
 * `--authorization-plugin=""`：载入认证的插件；
 * `-b=""`：将容器挂载到一个已存在的网桥上。指定为 `none` 时则禁用容器的网络，与 `--bip` 选项互斥；
 * `--bip=""`：让动态创建的 `docker0` 网桥采用给定的 CIDR 地址; 与 `-b` 选项互斥；
@@ -56,3 +56,4 @@
 ## 参考
 
 * [官方文档](https://docs.docker.com/engine/reference/commandline/dockerd/)
+

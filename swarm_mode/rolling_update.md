@@ -1,4 +1,4 @@
-# SWarm mode 与滚动升级
+# 滚动升级
 
 在 [部署服务](deploy.md) 一节中我们使用 `nginx:1.13.7-alpine` 镜像部署了一个名为 `nginx` 的服务。
 
@@ -44,3 +44,4 @@ i7ynkbg6ybq5         \_ nginx.1         nginx:1.13.7-alpine   VM-20-83-debian   
 ```
 
 结果的输出详细记录了服务的部署、滚动升级、回退的过程。
+

@@ -1,4 +1,4 @@
-# [WordPress](https://hub.docker.com/_/wordpress/)
+# WordPress
 
 ## 基本信息
 
@@ -22,4 +22,5 @@ $ docker run --name some-wordpress --link some-mysql:mysql -d wordpress
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/wordpress 查看。
+请到 [https://github.com/docker-library/docs/tree/master/wordpress](https://github.com/docker-library/docs/tree/master/wordpress) 查看。
+

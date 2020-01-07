@@ -1,4 +1,4 @@
-# [MySQL](https://hub.docker.com/_/mysql/)
+# MySQL
 
 ## 基本信息
 
@@ -31,4 +31,5 @@ $ docker run -it --rm \
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/mysql 查看
+请到 [https://github.com/docker-library/docs/tree/master/mysql](https://github.com/docker-library/docs/tree/master/mysql) 查看
+

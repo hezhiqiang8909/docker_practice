@@ -1,12 +1,12 @@
-# 构建多种系统架构支持的 Docker 镜像 -- docker manifest 命令详解
+# 构建多种系统架构支持的 Docker 镜像
 
 我们知道使用镜像创建一个容器，该镜像必须与 Docker 宿主机系统架构一致，例如 `Linux x86_64` 架构的系统中只能使用 `Linux x86_64` 的镜像创建容器。
 
-> Windows、macOS 除外，其使用了 [binfmt_misc](https://docs.docker.com/docker-for-mac/multi-arch/) 提供了多种架构支持，在 Windows、macOS 系统上 (x86_64) 可以运行 arm 等其他架构的镜像。
+> Windows、macOS 除外，其使用了 [binfmt\_misc](https://docs.docker.com/docker-for-mac/multi-arch/) 提供了多种架构支持，在 Windows、macOS 系统上 \(x86\_64\) 可以运行 arm 等其他架构的镜像。
 
 例如我们在 `Linux x86_64` 中构建一个 `username/test` 镜像。
 
-```docker
+```text
 FROM alpine
 
 CMD echo 1
@@ -34,13 +34,13 @@ $ docker run -it --rm username/test
 
 我们可以使用 `$ docker manifest inspect golang:alpine` 查看这个 `manifest` 列表的结构。
 
-> 该命令属于实验特性，请参考 [开启实验特性](../install/experimental) 一节。
+> 该命令属于实验特性，请参考 [开启实验特性](https://github.com/hezhiqiang8909/docker_practice/tree/386b1e4cf69352e060fb2522a40111a32e49f3b0/install/experimental/README.md) 一节。
 
 ```bash
 $ docker manifest inspect golang:alpine
 ```
 
-```json
+```javascript
 {
    "schemaVersion": 2,
    "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
@@ -105,7 +105,7 @@ $ docker manifest inspect golang:alpine
 }
 ```
 
-可以看出 `manifest` 列表中包含了不同系统架构所对应的镜像 `digest` 值，这样 Docker 就可以在不同的架构中使用相同的 `manifest` (例如 `golang:alpine`) 获取对应的镜像。
+可以看出 `manifest` 列表中包含了不同系统架构所对应的镜像 `digest` 值，这样 Docker 就可以在不同的架构中使用相同的 `manifest` \(例如 `golang:alpine`\) 获取对应的镜像。
 
 下面介绍如何使用 `$ docker manifest` 命令创建并推送 `manifest` 列表到 Docker Hub。
 
@@ -161,4 +161,5 @@ $ docker manifest push username/test
 
 详细了解 `manifest` 可以阅读官方博客。
 
-* https://blog.docker.com/2017/11/multi-arch-all-the-things/
+* [https://blog.docker.com/2017/11/multi-arch-all-the-things/](https://blog.docker.com/2017/11/multi-arch-all-the-things/)
+

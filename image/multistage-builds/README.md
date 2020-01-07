@@ -1,4 +1,4 @@
-# 多阶段构建
+# Dockerfile 多阶段构建
 
 ## 之前的做法
 
@@ -8,9 +8,8 @@
 
 一种方式是将所有的构建过程编包含在一个 `Dockerfile` 中，包括项目及其依赖库的编译、测试、打包等流程，这里可能会带来的一些问题：
 
-  * 镜像层次多，镜像体积较大，部署时间变长
-
-  * 源代码存在泄露的风险
+* 镜像层次多，镜像体积较大，部署时间变长
+* 源代码存在泄露的风险
 
 例如，编写 `app.go` 文件，该程序输出 `Hello World!`
 
@@ -26,7 +25,7 @@ func main(){
 
 编写 `Dockerfile.one` 文件
 
-```docker
+```text
 FROM golang:1.9-alpine
 
 RUN apk --no-cache add git ca-certificates
@@ -56,7 +55,7 @@ $ docker build -t go/helloworld:1 -f Dockerfile.one .
 
 例如，编写 `Dockerfile.build` 文件
 
-```docker
+```text
 FROM golang:1.9-alpine
 
 RUN apk --no-cache add git
@@ -71,7 +70,7 @@ RUN go get -d -v github.com/go-sql-driver/mysql \
 
 编写 `Dockerfile.copy` 文件
 
-```docker
+```text
 FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
@@ -121,11 +120,11 @@ go/helloworld   1      f55d3e16affc    2 minutes ago   295MB
 
 ## 使用多阶段构建
 
-为解决以上问题，Docker v17.05 开始支持多阶段构建 (`multistage builds`)。使用多阶段构建我们就可以很容易解决前面提到的问题，并且只需要编写一个 `Dockerfile`：
+为解决以上问题，Docker v17.05 开始支持多阶段构建 \(`multistage builds`\)。使用多阶段构建我们就可以很容易解决前面提到的问题，并且只需要编写一个 `Dockerfile`：
 
 例如，编写 `Dockerfile` 文件
 
-```docker
+```text
 FROM golang:1.9-alpine as builder
 
 RUN apk --no-cache add git
@@ -172,7 +171,7 @@ go/helloworld     1     f55d3e16affc     2 minutes ago      295MB
 
 我们可以使用 `as` 来为某一阶段命名，例如
 
-```docker
+```text
 FROM golang:1.9-alpine as builder
 ```
 
@@ -186,6 +185,7 @@ $ docker build --target builder -t username/imagename:tag .
 
 上面例子中我们使用 `COPY --from=0 /go/src/github.com/go/helloworld/app .` 从上一阶段的镜像中复制文件，我们也可以复制任意镜像中的文件。
 
-```docker
+```text
 $ COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
 ```
+

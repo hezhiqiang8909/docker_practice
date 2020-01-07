@@ -28,7 +28,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 ## PIP 安装
 
-*注：* `x86_64` 架构的 Linux 建议按照上边的方法下载二进制包进行安装，如果您计算机的架构是 `ARM` (例如，树莓派)，再使用 `pip` 安装。
+_注：_ `x86_64` 架构的 Linux 建议按照上边的方法下载二进制包进行安装，如果您计算机的架构是 `ARM` \(例如，树莓派\)，再使用 `pip` 安装。
 
 这种方式是将 Compose 当作一个 Python 应用来从 pip 源中安装。
 
@@ -66,3 +66,4 @@ $ sudo rm /usr/local/bin/docker-compose
 ```bash
 $ sudo pip uninstall docker-compose
 ```
+

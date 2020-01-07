@@ -1,4 +1,4 @@
-# Nexus3.x 的私有仓库
+# Nexus 3
 
 使用 Docker 官方的 Registry 创建的仓库面临一些维护问题。比如某些镜像删除以后空间默认是不会回收的，需要一些命令去回收空间然后重启 Registry 程序。在企业中把内部的一些工具包放入 Nexus 中是比较常见的做法，最新版本 `Nexus3.x` 全面支持 Docker 的私有镜像。所以使用 [`Nexus3.x`](https://www.sonatype.com/download-oss-sonatype/) 一个软件来管理 `Docker` , `Maven` , `Yum` , `PyPI` 等是一个明智的选择。
 
@@ -22,17 +22,17 @@ $ docker run -d --name nexus3 --restart=always \
 * Name: 仓库的名称
 * HTTP: 仓库单独的访问端口
 * Enable Docker V1 API: 如果需要同时支持 V1 版本请勾选此项（不建议勾选）。
-* Hosted -> Deployment pollcy: 请选择 Allow redeploy 否则无法上传 Docker 镜像。
+* Hosted -&gt; Deployment pollcy: 请选择 Allow redeploy 否则无法上传 Docker 镜像。
 
-其它的仓库创建方法请各位自己摸索，还可以创建一个 docker (proxy) 类型的仓库链接到 DockerHub 上。再创建一个 docker (group) 类型的仓库把刚才的 hosted 与 proxy 添加在一起。主机在访问的时候默认下载私有仓库中的镜像，如果没有将链接到 DockerHub 中下载并缓存到 Nexus 中。
+其它的仓库创建方法请各位自己摸索，还可以创建一个 docker \(proxy\) 类型的仓库链接到 DockerHub 上。再创建一个 docker \(group\) 类型的仓库把刚才的 hosted 与 proxy 添加在一起。主机在访问的时候默认下载私有仓库中的镜像，如果没有将链接到 DockerHub 中下载并缓存到 Nexus 中。
 
 ## 添加访问权限
 
 菜单 `Security->Realms` 把 Docker Bearer Token Realm 移到右边的框中保存。
 
-添加用户规则：菜单 `Security->Roles`->`Create role`  在 `Privlleges` 选项搜索 docker 把相应的规则移动到右边的框中然后保存。
+添加用户规则：菜单 `Security->Roles`-&gt;`Create role` 在 `Privlleges` 选项搜索 docker 把相应的规则移动到右边的框中然后保存。
 
-添加用户：菜单 `Security->Users`->`Create local user` 在 `Roles` 选项中选中刚才创建的规则移动到右边的窗口保存。
+添加用户：菜单 `Security->Users`-&gt;`Create local user` 在 `Roles` 选项中选中刚才创建的规则移动到右边的窗口保存。
 
 ## NGINX 加密代理
 
@@ -40,7 +40,7 @@ $ docker run -d --name nexus3 --restart=always \
 
 NGINX 示例配置如下
 
-```nginx
+```text
 upstream register
 {
     server "YourHostName OR IP":5001; #端口为上面添加的私有镜像仓库是设置的 HTTP 选项的端口号
@@ -102,3 +102,4 @@ $ systemctl restart docker
 ```
 
 使用 `docker login YourDomainName OR HostIP` 进行测试，用户名密码填写上面 Nexus 中生成的。
+

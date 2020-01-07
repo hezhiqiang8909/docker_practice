@@ -43,7 +43,7 @@ $ docker inspect web
 
 `挂载主机目录` 的配置信息在 "Mounts" Key 下面
 
-```json
+```javascript
 "Mounts": [
     {
         "Type": "bind",
@@ -73,3 +73,4 @@ root@2affd44b4667:/# history
 ```
 
 这样就可以记录在容器输入过的命令了。
+

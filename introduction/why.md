@@ -1,4 +1,4 @@
-# 为什么要使用 Docker？
+# 为什么要用 Docker
 
 作为一种新兴的虚拟化方式，`Docker` 跟传统的虚拟化方式相比具有众多的优势。
 
@@ -12,13 +12,13 @@
 
 ## 一致的运行环境
 
-开发过程中一个常见的问题是环境一致性问题。由于开发环境、测试环境、生产环境不一致，导致有些 bug 并未在开发过程中被发现。而 `Docker` 的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性，从而不会再出现 *「这段代码在我机器上没问题啊」* 这类问题。
+开发过程中一个常见的问题是环境一致性问题。由于开发环境、测试环境、生产环境不一致，导致有些 bug 并未在开发过程中被发现。而 `Docker` 的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性，从而不会再出现 _「这段代码在我机器上没问题啊」_ 这类问题。
 
 ## 持续交付和部署
 
 对开发和运维（[DevOps](https://zh.wikipedia.org/wiki/DevOps)）人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。
 
-使用 `Docker` 可以通过定制应用镜像来实现持续集成、持续交付、部署。开发人员可以通过 [Dockerfile](../image/dockerfile/) 来进行镜像构建，并结合 [持续集成(Continuous Integration)](https://en.wikipedia.org/wiki/Continuous_integration) 系统进行集成测试，而运维人员则可以直接在生产环境中快速部署该镜像，甚至结合 [持续部署(Continuous Delivery/Deployment)](https://en.wikipedia.org/wiki/Continuous_delivery) 系统进行自动部署。
+使用 `Docker` 可以通过定制应用镜像来实现持续集成、持续交付、部署。开发人员可以通过 [Dockerfile](../image/dockerfile/) 来进行镜像构建，并结合 [持续集成\(Continuous Integration\)](https://en.wikipedia.org/wiki/Continuous_integration) 系统进行集成测试，而运维人员则可以直接在生产环境中快速部署该镜像，甚至结合 [持续部署\(Continuous Delivery/Deployment\)](https://en.wikipedia.org/wiki/Continuous_delivery) 系统进行自动部署。
 
 而且使用 [`Dockerfile`](../image/build.md) 使镜像构建透明化，不仅仅开发团队可以理解应用运行环境，也方便运维团队理解应用运行所需条件，帮助更好的生产环境中部署该镜像。
 
@@ -32,9 +32,10 @@
 
 ## 对比传统虚拟机总结
 
-|   特性     |   容器    |   虚拟机   |
-| :--------   | :--------  | :---------- |
-| 启动       | 秒级      | 分钟级     |
-| 硬盘使用   | 一般为 `MB` | 一般为 `GB`  |
-| 性能       | 接近原生  | 弱于       |
+| 特性 | 容器 | 虚拟机 |
+| :--- | :--- | :--- |
+| 启动 | 秒级 | 分钟级 |
+| 硬盘使用 | 一般为 `MB` | 一般为 `GB` |
+| 性能 | 接近原生 | 弱于 |
 | 系统支持量 | 单机支持上千个容器 | 一般几十个 |
+

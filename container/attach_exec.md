@@ -20,7 +20,7 @@ $ docker attach 243c
 root@243c32535da7:/#
 ```
 
-*注意：* 如果从这个 stdin 中 exit，会导致容器的停止。
+_注意：_ 如果从这个 stdin 中 exit，会导致容器的停止。
 
 ## `exec` 命令
 
@@ -54,3 +54,4 @@ root@69d137adef7a:/#
 如果从这个 stdin 中 exit，不会导致容器的停止。这就是为什么推荐大家使用 `docker exec` 的原因。
 
 更多参数说明请使用 `docker exec --help` 查看。
+

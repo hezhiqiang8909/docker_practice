@@ -3,11 +3,11 @@
 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。国内很多云服务商都提供了国内加速器服务，例如：
 
 * [Azure 中国镜像 `https://dockerhub.azk8s.cn`](https://github.com/Azure/container-service-for-azure-china/blob/master/aks/README.md#22-container-registry-proxy)
-* [阿里云加速器(需登录账号获取)](https://cr.console.aliyun.com/cn-hangzhou/mirrors)
+* [阿里云加速器\(需登录账号获取\)](https://cr.console.aliyun.com/cn-hangzhou/mirrors)
 * [网易云加速器 `https://hub-mirror.c.163.com`](https://www.163yun.com/help/documents/56918246390157312)
 
 > 由于镜像服务可能出现宕机，建议同时配置多个镜像。各个镜像站测试结果请到 [docker-practice/docker-registry-cn-mirror-test](https://github.com/docker-practice/docker-registry-cn-mirror-test/actions) 查看。
-
+>
 > 国内各大云服务商均提供了 Docker 镜像加速服务，建议根据运行 Docker 的云平台选择对应的镜像加速服务，具体请参考官方文档。
 
 本节我们以 Azure 中国镜像 `https://dockerhub.azk8s.cn` 为例进行介绍。
@@ -16,7 +16,7 @@
 
 对于使用 [systemd](https://www.freedesktop.org/wiki/Software/systemd/) 的系统，请在 `/etc/docker/daemon.json` 中写入如下内容（如果文件不存在请新建该文件）
 
-```json
+```javascript
 {
   "registry-mirrors": [
     "https://dockerhub.azk8s.cn",
@@ -34,13 +34,13 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
 
->注意：如果您之前查看旧教程，修改了 `docker.service` 文件内容，请去掉您添加的内容（`--registry-mirror=https://dockerhub.azk8s.cn`）。
+> 注意：如果您之前查看旧教程，修改了 `docker.service` 文件内容，请去掉您添加的内容（`--registry-mirror=https://dockerhub.azk8s.cn`）。
 
 ## Windows 10
 
 对于使用 `Windows 10` 的用户，在任务栏托盘 Docker 图标内右键菜单选择 `Settings`，打开配置窗口后在左侧导航菜单选择 `Docker Engine`，在右侧像下边一样编辑 json 文件，之后点击 `Apply & Restart` 保存后 Docker 就会重启并应用配置的镜像地址了。
 
-```json
+```javascript
 {
   "registry-mirrors": [
     "https://dockerhub.azk8s.cn",
@@ -51,9 +51,9 @@ $ sudo systemctl restart docker
 
 ## macOS
 
-对于使用 macOS 的用户，在任务栏点击 Docker Desktop 应用图标 -> `Perferences`，在左侧导航菜单选择 `Docker Engine`，在右侧像下边一样编辑 json 文件。修改完成之后，点击 `Apply & Restart` 按钮，Docker 就会重启并应用配置的镜像地址了。
+对于使用 macOS 的用户，在任务栏点击 Docker Desktop 应用图标 -&gt; `Perferences`，在左侧导航菜单选择 `Docker Engine`，在右侧像下边一样编辑 json 文件。修改完成之后，点击 `Apply & Restart` 按钮，Docker 就会重启并应用配置的镜像地址了。
 
-```json
+```javascript
 {
   "registry-mirrors": [
     "https://dockerhub.azk8s.cn",
@@ -80,3 +80,4 @@ Registry Mirrors:
 
 $ docker pull gcr.azk8s.cn/google_containers/hyperkube-amd64:v1.9.2
 ```
+

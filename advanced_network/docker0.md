@@ -7,7 +7,7 @@ Docker 默认指定了 `docker0` 接口 的 IP 地址和子网掩码，让主机
 * `--bip=CIDR` IP 地址加掩码格式，例如 192.168.1.5/24
 * `--mtu=BYTES` 覆盖默认的 Docker mtu 配置
 
-也可以在配置文件中配置 DOCKER_OPTS，然后重启服务。
+也可以在配置文件中配置 DOCKER\_OPTS，然后重启服务。
 
 由于目前 Docker 网桥是 Linux 网桥，用户可以使用 `brctl show` 来查看网桥和端口连接信息。
 
@@ -17,8 +17,8 @@ bridge name     bridge id               STP enabled     interfaces
 docker0         8000.3a1d7362b4ee       no              veth65f9
                                              vethdda6
 ```
-*注：`brctl` 命令在 Debian、Ubuntu 中可以使用 `sudo apt-get install bridge-utils` 来安装。
 
+\*注：`brctl` 命令在 Debian、Ubuntu 中可以使用 `sudo apt-get install bridge-utils` 来安装。
 
 每次创建一个新容器的时候，Docker 从可用的地址段中选择一个空闲的 IP 地址分配给容器的 eth0 端口。使用本地主机上 `docker0` 接口的 IP 作为所有容器的默认网关。
 
@@ -35,3 +35,4 @@ $ ip route
 default via 172.17.42.1 dev eth0
 172.17.0.0/16 dev eth0  proto kernel  scope link  src 172.17.0.3
 ```
+

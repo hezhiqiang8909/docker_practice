@@ -4,7 +4,7 @@
 
 ## 注册
 
-你可以在 https://hub.docker.com 免费注册一个 Docker 账号。
+你可以在 [https://hub.docker.com](https://hub.docker.com) 免费注册一个 Docker 账号。
 
 ## 登录
 
@@ -83,13 +83,10 @@ username/ubuntu
 要配置自动构建，包括如下的步骤：
 
 * 登录 Docker Hub；
-
 * 在 Docker Hub 点击右上角头像，在账号设置（Account Settings）中关联（Linked Accounts）目标网站；
-
 * 在 Docker Hub 中新建或选择已有的仓库，在 `Builds` 选项卡中选择 `Configure Automated Builds`；
-
 * 选取一个目标网站中的项目（需要含 `Dockerfile`）和分支；
-
 * 指定 `Dockerfile` 的位置，并保存。
 
 之后，可以在 Docker Hub 的仓库页面的 `Timeline` 选项卡中查看每次构建的状态。
+

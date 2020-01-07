@@ -24,7 +24,7 @@ $ docker buildx use mybuilder
 
 新建 Dockerfile 文件。
 
-```docker
+```text
 FROM --platform=$TARGETPLATFORM alpine
 
 RUN uname -a > /os.txt
@@ -58,3 +58,4 @@ Linux buildkitsandbox 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 aarch6
 $ docker run -it --rm myusername/hello
 Linux buildkitsandbox 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 x86_64 Linux
 ```
+

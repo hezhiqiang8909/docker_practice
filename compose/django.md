@@ -1,4 +1,4 @@
-# 使用 Django
+# 实战 Django
 
 > 本小节内容适合 `Python` 开发人员阅读。
 
@@ -8,7 +8,7 @@
 
 第一步，因为应用将要运行在一个满足所有环境依赖的 Docker 容器里面，那么我们可以通过编辑 `Dockerfile` 文件来指定 Docker 容器要安装内容。内容如下：
 
-```docker
+```text
 FROM python:3
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
@@ -18,7 +18,7 @@ RUN pip install -r requirements.txt
 COPY . /code/
 ```
 
-以上内容指定应用将使用安装了 Python 以及必要依赖包的镜像。更多关于如何编写 `Dockerfile` 文件的信息可以查看 [ Dockerfile 使用](../image/dockerfile/README.md)。
+以上内容指定应用将使用安装了 Python 以及必要依赖包的镜像。更多关于如何编写 `Dockerfile` 文件的信息可以查看 [ Dockerfile 使用](../image/dockerfile/)。
 
 第二步，在 `requirements.txt` 文件里面写明需要安装的具体依赖包名。
 
@@ -117,3 +117,4 @@ web_1  | Quit the server with CONTROL-C.
 ```bash
 $ docker-compose run web python manage.py syncdb
 ```
+

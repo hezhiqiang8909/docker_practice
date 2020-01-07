@@ -1,4 +1,4 @@
-# Dockerfile 最佳实践
+# 附录四：Dockerfile 最佳实践
 
 本附录是笔者对 Docker 官方文档中 [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) 的理解与翻译。
 
@@ -14,7 +14,7 @@
 
 ### 使用多阶段构建
 
-在 `Docker 17.05` 以上版本中，你可以使用 [多阶段构建](../image/multistage-builds.md) 来减少所构建镜像的大小。
+在 `Docker 17.05` 以上版本中，你可以使用 [多阶段构建](https://github.com/hezhiqiang8909/docker_practice/tree/386b1e4cf69352e060fb2522a40111a32e49f3b0/image/multistage-builds.md) 来减少所构建镜像的大小。
 
 ### 避免安装不必要的包
 
@@ -36,7 +36,7 @@
 
 下面是来自 `buildpack-deps` 镜像的例子：
 
-```docker
+```text
 RUN apt-get update && apt-get install -y \
   bzr \
   cvs \
@@ -70,9 +70,9 @@ RUN apt-get update && apt-get install -y \
 
 你可以给镜像添加标签来帮助组织镜像、记录许可信息、辅助自动化构建等。每个标签一行，由 `LABEL` 开头加上一个或多个标签对。下面的示例展示了各种不同的可能格式。`#` 开头的行是注释内容。
 
->注意：如果你的字符串中包含空格，必须将字符串放入引号中或者对空格使用转义。如果字符串内容本身就包含引号，必须对引号使用转义。
+> 注意：如果你的字符串中包含空格，必须将字符串放入引号中或者对空格使用转义。如果字符串内容本身就包含引号，必须对引号使用转义。
 
-```docker
+```text
 # Set one or more individual labels
 LABEL com.example.version="0.0.1-beta"
 
@@ -85,7 +85,7 @@ LABEL com.example.version.is-production=""
 
 一个镜像可以包含多个标签，但建议将多个标签放入到一个 `LABEL` 指令中。
 
-```docker
+```text
 # Set multiple labels at once, using line-continuation characters to break long lines
 LABEL vendor=ACME\ Incorporated \
       com.example.is-beta= \
@@ -108,7 +108,7 @@ LABEL vendor=ACME\ Incorporated \
 
 永远将 `RUN apt-get update` 和 `apt-get install` 组合成一条 `RUN` 声明，例如：
 
-```docker
+```text
 RUN apt-get update && apt-get install -y \
         package-bar \
         package-baz \
@@ -117,7 +117,7 @@ RUN apt-get update && apt-get install -y \
 
 将 `apt-get update` 放在一条单独的 `RUN` 声明中会导致缓存问题以及后续的 `apt-get install` 失败。比如，假设你有一个 `Dockerfile` 文件：
 
-```docker
+```text
 FROM ubuntu:18.04
 
 RUN apt-get update
@@ -127,7 +127,7 @@ RUN apt-get install -y curl
 
 构建镜像后，所有的层都在 Docker 的缓存中。假设你后来又修改了其中的 `apt-get install` 添加了一个包：
 
-```docker
+```text
 FROM ubuntu:18.04
 
 RUN apt-get update
@@ -139,7 +139,7 @@ Docker 发现修改后的 `RUN apt-get update` 指令和之前的完全一样。
 
 使用 `RUN apt-get update && apt-get install -y` 可以确保你的 Dockerfiles 每次安装的都是包的最新的版本，而且这个过程不需要进一步的编码或额外干预。这项技术叫作 `cache busting`。你也可以显示指定一个包的版本号来达到 `cache-busting`，这就是所谓的固定版本，例如：
 
-```docker
+```text
 RUN apt-get update && apt-get install -y \
     package-bar \
     package-baz \
@@ -150,7 +150,7 @@ RUN apt-get update && apt-get install -y \
 
 下面是一个 `RUN` 指令的示例模板，展示了所有关于 `apt-get` 的建议。
 
-```docker
+```text
 RUN apt-get update && apt-get install -y \
     aufs-tools \
     automake \
@@ -175,9 +175,9 @@ RUN apt-get update && apt-get install -y \
 
 ### CMD
 
-`CMD` 指令用于执行目标镜像中包含的软件，可以包含参数。`CMD` 大多数情况下都应该以 `CMD ["executable", "param1", "param2"...]` 的形式使用。因此，如果创建镜像的目的是为了部署某个服务(比如 `Apache`)，你可能会执行类似于 `CMD ["apache2", "-DFOREGROUND"]` 形式的命令。我们建议任何服务镜像都使用这种形式的命令。
+`CMD` 指令用于执行目标镜像中包含的软件，可以包含参数。`CMD` 大多数情况下都应该以 `CMD ["executable", "param1", "param2"...]` 的形式使用。因此，如果创建镜像的目的是为了部署某个服务\(比如 `Apache`\)，你可能会执行类似于 `CMD ["apache2", "-DFOREGROUND"]` 形式的命令。我们建议任何服务镜像都使用这种形式的命令。
 
-多数情况下，`CMD` 都需要一个交互式的 `shell` (bash, Python, perl 等)，例如 `CMD ["perl", "-de0"]`，或者 `CMD ["PHP", "-a"]`。使用这种形式意味着，当你执行类似 `docker run -it python` 时，你会进入一个准备好的 `shell` 中。`CMD` 应该在极少的情况下才能以 `CMD ["param", "param"]` 的形式与 `ENTRYPOINT` 协同使用，除非你和你的镜像使用者都对 `ENTRYPOINT` 的工作方式十分熟悉。
+多数情况下，`CMD` 都需要一个交互式的 `shell` \(bash, Python, perl 等\)，例如 `CMD ["perl", "-de0"]`，或者 `CMD ["PHP", "-a"]`。使用这种形式意味着，当你执行类似 `docker run -it python` 时，你会进入一个准备好的 `shell` 中。`CMD` 应该在极少的情况下才能以 `CMD ["param", "param"]` 的形式与 `ENTRYPOINT` 协同使用，除非你和你的镜像使用者都对 `ENTRYPOINT` 的工作方式十分熟悉。
 
 ### EXPOSE
 
@@ -193,7 +193,7 @@ RUN apt-get update && apt-get install -y \
 
 最后，`ENV` 也能用于设置常见的版本号，比如下面的示例：
 
-```docker
+```text
 ENV PG_MAJOR 9.3
 
 ENV PG_VERSION 9.3.4
@@ -211,7 +211,7 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
 
 如果你的 `Dockerfile` 有多个步骤需要使用上下文中不同的文件。单独 `COPY` 每个文件，而不是一次性的 `COPY` 所有文件，这将保证每个步骤的构建缓存只在特定的文件变化时失效。例如：
 
-```docker
+```text
 COPY requirements.txt /tmp/
 
 RUN pip install --requirement /tmp/requirements.txt
@@ -223,7 +223,7 @@ COPY . /tmp/
 
 为了让镜像尽量小，最好不要使用 `ADD` 指令从远程 URL 获取包，而是使用 `curl` 和 `wget`。这样你可以在文件提取完之后删掉不再需要的文件来避免在镜像中额外添加一层。比如尽量避免下面的用法：
 
-```docker
+```text
 ADD http://example.com/big.tar.xz /usr/src/things/
 
 RUN tar -xJf /usr/src/things/big.tar.xz -C /usr/src/things
@@ -233,7 +233,7 @@ RUN make -C /usr/src/things all
 
 而是应该使用下面这种方法：
 
-```docker
+```text
 RUN mkdir -p /usr/src/things \
     && curl -SL http://example.com/big.tar.xz \
     | tar -xJC /usr/src/things \
@@ -250,7 +250,7 @@ RUN mkdir -p /usr/src/things \
 
 例如，下面的示例镜像提供了命令行工具 `s3cmd`:
 
-```docker
+```text
 ENTRYPOINT ["s3cmd"]
 
 CMD ["--help"]
@@ -291,11 +291,11 @@ fi
 exec "$@"
 ```
 
->注意：该脚本使用了 Bash 的内置命令 exec，所以最后运行的进程就是容器的 PID 为 1 的进程。这样，进程就可以接收到任何发送给容器的 Unix 信号了。
+> 注意：该脚本使用了 Bash 的内置命令 exec，所以最后运行的进程就是容器的 PID 为 1 的进程。这样，进程就可以接收到任何发送给容器的 Unix 信号了。
 
 该辅助脚本被拷贝到容器，并在容器启动时通过 `ENTRYPOINT` 执行：
 
-```docker
+```text
 COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
@@ -329,7 +329,7 @@ $ docker run --rm -it postgres bash
 
 如果某个服务不需要特权执行，建议使用 `USER` 指令切换到非 root 用户。先在 `Dockerfile` 中使用类似 `RUN groupadd -r postgres && useradd -r -g postgres postgres` 的指令创建用户和用户组。
 
->注意：在镜像中，用户和用户组每次被分配的 UID/GID 都是不确定的，下次重新构建镜像时被分配到的 UID/GID 可能会不一样。如果要依赖确定的 UID/GID，你应该显示的指定一个 UID/GID。
+> 注意：在镜像中，用户和用户组每次被分配的 UID/GID 都是不确定的，下次重新构建镜像时被分配到的 UID/GID 可能会不一样。如果要依赖确定的 UID/GID，你应该显示的指定一个 UID/GID。
 
 你应该避免使用 `sudo`，因为它不可预期的 TTY 和信号转发行为可能造成的问题比它能解决的问题还多。如果你真的需要和 `sudo` 类似的功能（例如，以 root 权限初始化某个守护进程，以非 root 权限执行它），你可以使用 [gosu](https://github.com/tianon/gosu)。
 
@@ -341,4 +341,5 @@ $ docker run --rm -it postgres bash
 
 ## 官方镜像示例
 
-这些官方镜像的 Dockerfile 都是参考典范：https://github.com/docker-library/docs
+这些官方镜像的 Dockerfile 都是参考典范：[https://github.com/docker-library/docs](https://github.com/docker-library/docs)
+

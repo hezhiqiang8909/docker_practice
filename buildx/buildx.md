@@ -1,4 +1,4 @@
-# 使用 Buildx 构建镜像
+# 使用 buildx 构建镜像
 
 ## 启用 Buildx
 
@@ -18,4 +18,5 @@ Buildx 使用 [BuildKit 引擎](buildkit.md) 进行构建，支持许多新的�
 
 ## 官方文档
 
-* https://docs.docker.com/engine/reference/commandline/buildx/
+* [https://docs.docker.com/engine/reference/commandline/buildx/](https://docs.docker.com/engine/reference/commandline/buildx/)
+

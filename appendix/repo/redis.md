@@ -1,4 +1,4 @@
-# [Redis](https://hub.docker.com/_/redis/)
+# Redis
 
 ## 基本信息
 
@@ -39,4 +39,5 @@ $ docker run -it --rm \
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/redis 查看。
+请到 [https://github.com/docker-library/docs/tree/master/redis](https://github.com/docker-library/docs/tree/master/redis) 查看。
+

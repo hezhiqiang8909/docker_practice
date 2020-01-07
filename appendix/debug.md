@@ -1,10 +1,10 @@
-# 如何调试 Docker
+# 附录五：如何调试 Docker
 
 ## 开启 Debug 模式
 
 在 dockerd 配置文件 daemon.json（默认位于 /etc/docker/）中添加
 
-```json
+```javascript
 {
   "debug": true
 }
@@ -35,8 +35,9 @@ $ sudo kill -SIGUSR1 $(pidof dockerd)
 
 ## 重置 Docker 本地数据
 
-*注意，本操作会移除所有的 Docker 本地数据，包括镜像和容器等。*
+_注意，本操作会移除所有的 Docker 本地数据，包括镜像和容器等。_
 
 ```bash
 $ sudo rm -rf /var/lib/docker
 ```
+

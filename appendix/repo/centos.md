@@ -1,4 +1,4 @@
-# [CentOS](https://hub.docker.com/_/centos)
+# CentOS
 
 ## 基本信息
 
@@ -17,4 +17,5 @@ bash-4.2#
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/centos 查看。
+请到 [https://github.com/docker-library/docs/tree/master/centos](https://github.com/docker-library/docs/tree/master/centos) 查看。
+

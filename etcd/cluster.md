@@ -1,4 +1,4 @@
-# etcd 集群
+# 集群
 
 下面我们使用 [Docker Compose](../compose/) 模拟启动一个 3 节点的 `etcd` 集群。
 
@@ -127,3 +127,4 @@ daf3fd52e3583ff, started, node3, http://172.16.238.102:2380, http://172.16.238.1
 422a74f03b622fef, started, node1, http://172.16.238.100:2380, http://172.16.238.100:2379
 ed635d2a2dbef43d, started, node2, http://172.16.238.101:2380, http://172.16.238.101:2379
 ```
+

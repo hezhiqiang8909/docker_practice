@@ -1,6 +1,6 @@
-# Debian 安装 Docker CE
+# Debian
 
->警告：切勿在没有配置 Docker APT 源的情况下直接使用 apt 命令安装 Docker.
+> 警告：切勿在没有配置 Docker APT 源的情况下直接使用 apt 命令安装 Docker.
 
 ## 准备工作
 
@@ -64,7 +64,7 @@ $ sudo add-apt-repository \
 #    stable"
 ```
 
->以上命令会添加稳定版本的 Docker CE APT 源，如果需要测试或每日构建版本的 Docker CE 请将 stable 改为 test 或者 nightly。
+> 以上命令会添加稳定版本的 Docker CE APT 源，如果需要测试或每日构建版本的 Docker CE 请将 stable 改为 test 或者 nightly。
 
 ### 安装 Docker CE
 
@@ -86,7 +86,7 @@ $ sudo sh get-docker.sh --mirror Aliyun
 # $ sudo sh get-docker.sh --mirror AzureChinaCloud
 ```
 
-执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定(stable)版本安装在系统中。
+执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定\(stable\)版本安装在系统中。
 
 ## 启动 Docker CE
 
@@ -155,3 +155,4 @@ For more examples and ideas, visit:
 ## 参考文档
 
 * [Docker 官方 Debian 安装文档](https://docs.docker.com/install/linux/docker-ce/debian/)
+

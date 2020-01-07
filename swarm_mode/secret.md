@@ -1,10 +1,10 @@
-# 在 Swarm 集群中管理敏感数据
+# 管理密钥
 
 在动态的、大规模的分布式集群上，管理和分发 `密码`、`证书` 等敏感信息是极其重要的工作。传统的密钥分发方式（如密钥放入镜像中，设置环境变量，volume 动态挂载等）都存在着潜在的巨大的安全风险。
 
 Docker 目前已经提供了 `secrets` 管理功能，用户可以在 Swarm 集群中安全地管理密码、密钥证书等敏感数据，并允许在多个 Docker 容器实例之间共享访问指定的敏感数据。
 
->注意： `secret` 也可以在 `Docker Compose` 中使用。
+> 注意： `secret` 也可以在 `Docker Compose` 中使用。
 
 我们可以用 `docker secret` 命令来管理敏感信息。接下来我们在上面章节中创建好的 Swarm 集群中介绍该命令的使用。
 
@@ -83,3 +83,4 @@ nzt5xzae4n62  wordpress  replicated  1/1       wordpress:latest
 现在浏览器访问 `IP:30000`，即可开始 `WordPress` 的安装与使用。
 
 通过以上方法，我们没有像以前通过设置环境变量来设置 MySQL 密码， 而是采用 `docker secret` 来设置密码，防范了密码泄露的风险。
+

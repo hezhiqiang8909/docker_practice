@@ -6,7 +6,7 @@
 
 编辑 `~/.docker/config.json` 文件，新增如下条目
 
-```json
+```javascript
 {
   "experimental": "enabled"
 }
@@ -22,7 +22,7 @@ $ export DOCKER_CLI_EXPERIMENTAL=enabled
 
 **Windows**
 
-```powershell
+```text
 # 临时生效
 $ set $env:DOCKER_CLI_EXPERIMENTAL="enabled"
 
@@ -34,8 +34,9 @@ $ [environment]::SetEnvironmentvariable("DOCKER_CLI_EXPERIMENTAL","enabled","Use
 
 编辑 `/etc/docker/daemon.json`，新增如下条目
 
-```json
+```javascript
 {
   "experimental": true
 }
 ```
+

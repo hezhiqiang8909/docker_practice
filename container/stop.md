@@ -1,4 +1,4 @@
-# 终止容器
+# 终止
 
 可以使用 `docker container stop` 来终止一个运行中的容器。
 
@@ -18,3 +18,4 @@ ba267838cc1b        ubuntu:18.04             "/bin/bash"            30 minutes a
 处于终止状态的容器，可以通过 `docker container start` 命令来重新启动。
 
 此外，`docker container restart` 命令会将一个运行态的容器终止，然后再重新启动它。
+

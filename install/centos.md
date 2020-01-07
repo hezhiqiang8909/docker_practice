@@ -1,6 +1,6 @@
-# CentOS 安装 Docker CE
+# CentOS
 
->警告：切勿在没有配置 Docker YUM 源的情况下直接使用 yum 命令安装 Docker.
+> 警告：切勿在没有配置 Docker YUM 源的情况下直接使用 yum 命令安装 Docker.
 
 ## 准备工作
 
@@ -82,7 +82,7 @@ $ sudo sh get-docker.sh --mirror Aliyun
 # $ sudo sh get-docker.sh --mirror AzureChinaCloud
 ```
 
-执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定(stable)版本安装在系统中。
+执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定\(stable\)版本安装在系统中。
 
 ## 启动 Docker CE
 
@@ -175,3 +175,4 @@ $ sudo sysctl -p
 ## 参考文档
 
 * [Docker 官方 CentOS 安装文档](https://docs.docker.com/install/linux/docker-ce/centos/)。
+

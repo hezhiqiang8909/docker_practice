@@ -1,4 +1,4 @@
-# [PHP](https://hub.docker.com/_/php/)
+# PHP
 
 ## 基本信息
 
@@ -16,4 +16,5 @@ $ docker run -it --rm -v "$PWD":/app -w /app php:alpine php your-script.php
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/php 查看。
+请到 [https://github.com/docker-library/docs/tree/master/php](https://github.com/docker-library/docs/tree/master/php) 查看。
+

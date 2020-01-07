@@ -1,4 +1,4 @@
-# [Ubuntu](https://hub.docker.com/_/ubuntu/)
+# Ubuntu
 
 ## 基本信息
 
@@ -17,4 +17,5 @@ root@523c70904d54:/#
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/ubuntu 查看。
+请到 [https://github.com/docker-library/docs/tree/master/ubuntu](https://github.com/docker-library/docs/tree/master/ubuntu) 查看。
+

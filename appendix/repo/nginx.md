@@ -1,4 +1,4 @@
-# [Nginx](https://hub.docker.com/_/nginx/)
+# Nginx
 
 ## 基本信息
 
@@ -45,4 +45,5 @@ $ docker run -d \
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/nginx 查看。
+请到 [https://github.com/docker-library/docs/tree/master/nginx](https://github.com/docker-library/docs/tree/master/nginx) 查看。
+

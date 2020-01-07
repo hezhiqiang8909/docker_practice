@@ -18,7 +18,7 @@ services:
 
 注意每个服务都必须通过 `image` 指令指定镜像或 `build` 指令（需要 Dockerfile）等来自动构建生成镜像。
 
-如果使用 `build` 指令，在 `Dockerfile` 中设置的选项(例如：`CMD`, `EXPOSE`, `VOLUME`, `ENV` 等) 将会自动被获取，无需在 `docker-compose.yml` 中重复设置。
+如果使用 `build` 指令，在 `Dockerfile` 中设置的选项\(例如：`CMD`, `EXPOSE`, `VOLUME`, `ENV` 等\) 将会自动被获取，无需在 `docker-compose.yml` 中重复设置。
 
 下面分别介绍各个指令的用法。
 
@@ -73,7 +73,7 @@ cap_add:
   - ALL
 ```
 
-去掉 NET_ADMIN 能力可以指定为：
+去掉 NET\_ADMIN 能力可以指定为：
 
 ```yaml
 cap_drop:
@@ -110,7 +110,7 @@ cgroup_parent: cgroups_1
 container_name: docker-web-container
 ```
 
->注意: 指定容器名称后，该服务将无法进行扩展（scale），因为 Docker 不允许多个容器具有相同的名称。
+> 注意: 指定容器名称后，该服务将无法进行扩展（scale），因为 Docker 不允许多个容器具有相同的名称。
 
 ## `deploy`
 
@@ -146,7 +146,7 @@ services:
     image: postgres
 ```
 
->注意：`web` 服务不会等待 `redis` `db` 「完全启动」之后才启动。
+> 注意：`web` 服务不会等待 `redis` `db` 「完全启动」之后才启动。
 
 ## `dns`
 
@@ -243,7 +243,7 @@ expose:
 
 ## `external_links`
 
->注意：不建议使用该指令。
+> 注意：不建议使用该指令。
 
 链接到 `docker-compose.yml` 外部的容器，甚至并非 `Compose` 管理的外部容器。
 
@@ -306,7 +306,7 @@ labels:
 
 ## `links`
 
->注意：不推荐使用该指令。
+> 注意：不推荐使用该指令。
 
 ## `logging`
 
@@ -387,7 +387,7 @@ ports:
  - "127.0.0.1:8001:8001"
 ```
 
-*注意：当使用 `HOST:CONTAINER` 格式来映射端口时，如果你使用的容器端口小于 60 并且没放到引号里，可能会得到错误结果，因为 `YAML` 会自动解析 `xx:yy` 这种数字格式为 60 进制。为避免出现这种问题，建议数字串都采用引号包括起来的字符串格式。*
+_注意：当使用 `HOST:CONTAINER` 格式来映射端口时，如果你使用的容器端口小于 60 并且没放到引号里，可能会得到错误结果，因为 `YAML` 会自动解析 `xx:yy` 这种数字格式为 60 进制。为避免出现这种问题，建议数字串都采用引号包括起来的字符串格式。_
 
 ## `secrets`
 
@@ -460,7 +460,7 @@ sysctls:
 
 ## `volumes`
 
-数据卷所挂载路径设置。可以设置为宿主机路径(`HOST:CONTAINER`)或者数据卷名称(`VOLUME:CONTAINER`)，并且可以设置访问模式 （`HOST:CONTAINER:ro`）。
+数据卷所挂载路径设置。可以设置为宿主机路径\(`HOST:CONTAINER`\)或者数据卷名称\(`VOLUME:CONTAINER`\)，并且可以设置访问模式 （`HOST:CONTAINER:ro`）。
 
 该指令中路径支持相对路径。
 
@@ -483,7 +483,7 @@ services:
       - mysql_data:/var/lib/mysql
 
 volumes:
-  mysql_data:  
+  mysql_data:
 ```
 
 ## 其它指令
@@ -576,3 +576,4 @@ MONGO_VERSION=3.6
 ## 参考资料
 
 * [官方文档](https://docs.docker.com/compose/compose-file/)
+

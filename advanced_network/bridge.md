@@ -32,7 +32,7 @@ $ ip addr show bridge0
 
 在 Docker 配置文件 `/etc/docker/daemon.json` 中添加如下内容，即可将 Docker 默认桥接到创建的网桥上。
 
-```json
+```javascript
 {
   "bridge": "bridge0",
 }
@@ -43,3 +43,4 @@ $ ip addr show bridge0
 新建一个容器，可以看到它已经桥接到了 `bridge0` 上。
 
 可以继续用 `brctl show` 命令查看桥接的信息。另外，在容器中可以使用 `ip addr` 和 `ip route` 命令来查看 IP 地址配置和路由信息。
+

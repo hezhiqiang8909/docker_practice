@@ -4,7 +4,7 @@
 
 ## 初始化集群
 
-在 [`Docker Machine`](../machine) 一节中我们了解到 `Docker Machine` 可以在数秒内创建一个虚拟的 Docker 主机，下面我们使用它来创建三个 Docker 主机，并加入到集群中。
+在 [`Docker Machine`](../archive/machine/) 一节中我们了解到 `Docker Machine` 可以在数秒内创建一个虚拟的 Docker 主机，下面我们使用它来创建三个 Docker 主机，并加入到集群中。
 
 我们首先创建一个 Docker 主机作为管理节点。
 
@@ -61,7 +61,7 @@ docker@worker1:~$ docker swarm join \
 This node joined a swarm as a worker.
 ```
 
->注意：一些细心的读者可能通过 `docker-machine create --help` 查看到 `--swarm*` 等一系列参数。该参数是用于旧的 `Docker Swarm`，与本章所讲的 `Swarm mode` 没有关系。
+> 注意：一些细心的读者可能通过 `docker-machine create --help` 查看到 `--swarm*` 等一系列参数。该参数是用于旧的 `Docker Swarm`，与本章所讲的 `Swarm mode` 没有关系。
 
 ## 查看集群
 
@@ -76,3 +76,4 @@ ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 9j68exjopxe7wfl6yuxml7a7j    worker1   Ready   Active
 dxn1zf6l61qsb1josjja83ngz *  manager   Ready   Active        Leader
 ```
+

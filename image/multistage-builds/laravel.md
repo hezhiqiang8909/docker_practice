@@ -25,7 +25,7 @@ storage/
 
 在 `laravel.conf` 文件中写入 nginx 配置。
 
-```nginx
+```text
 server {
   listen 80 default_server;
   root /app/laravel/public;
@@ -50,7 +50,7 @@ server {
 
 第一阶段进行前端构建。
 
-```docker
+```text
 FROM node:alpine as frontend
 
 COPY package.json /app/
@@ -69,7 +69,7 @@ RUN cd /app \
 
 第二阶段安装 Composer 依赖。
 
-```docker
+```text
 FROM composer as composer
 
 COPY database/ /app/database/
@@ -89,7 +89,7 @@ RUN cd /app \
 
 第三阶段对以上阶段生成的文件进行整合。
 
-```docker
+```text
 FROM php:7.2-fpm-alpine as laravel
 
 ARG LARAVEL_PATH=/app/laravel
@@ -113,7 +113,7 @@ RUN cd ${LARAVEL_PATH} \
 
 ## 最后一个阶段构建 NGINX 镜像
 
-```docker
+```text
 FROM nginx:alpine as nginx
 
 ARG LARAVEL_PATH=/app/laravel
@@ -140,7 +140,7 @@ $ docker build -t my/nginx --target=nginx .
 $ docker network create laravel
 ```
 
-启动 laravel 容器， `--name=laravel` 参数设定的名字必须与 `nginx` 配置文件中的 `fastcgi_pass   laravel:9000;` 一致
+启动 laravel 容器， `--name=laravel` 参数设定的名字必须与 `nginx` 配置文件中的 `fastcgi_pass laravel:9000;` 一致
 
 ```bash
 $ docker run -it --rm --name=laravel --network=laravel my/laravel
@@ -164,7 +164,7 @@ $ docker run -it --rm --network=laravel -p 8080:80 my/nginx
 
 完整的 `Dockerfile` 文件如下。
 
-```docker
+```text
 FROM node:alpine as frontend
 
 COPY package.json /app/
@@ -219,3 +219,4 @@ ARG LARAVEL_PATH=/app/laravel
 COPY laravel.conf /etc/nginx/conf.d/
 COPY --from=laravel ${LARAVEL_PATH}/public ${LARAVEL_PATH}/public
 ```
+

@@ -1,4 +1,4 @@
-# Windows 10 安装 Docker Desktop CE
+# Windows 10
 
 ## 系统要求
 
@@ -14,15 +14,15 @@
 
 在 Windows 搜索栏输入 Docker 点击 Docker for Windows 开始运行。
 
-![](_images/install-win-docker-app-search.png)
+![](../.gitbook/assets/install-win-docker-app-search.png)
 
 Docker CE 启动之后会在 Windows 任务栏出现鲸鱼图标。
 
-![](_images/install-win-taskbar-circle.png)
+![](../.gitbook/assets/install-win-taskbar-circle.png)
 
 等待片刻，点击 Got it 开始使用 Docker CE。
 
-![](_images/install-win-success-popup-cloud.png)
+![](../.gitbook/assets/install-win-success-popup-cloud.png)
 
 ## 镜像加速
 
@@ -31,3 +31,4 @@ Docker CE 启动之后会在 Windows 任务栏出现鲸鱼图标。
 ## 参考链接
 
 * [官方文档](https://docs.docker.com/docker-for-windows/install/)
+

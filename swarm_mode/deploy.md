@@ -67,3 +67,4 @@ $ docker service scale nginx=2
 ```bash
 $ docker service rm nginx
 ```
+

@@ -1,4 +1,4 @@
-# [Node.js](https://hub.docker.com/_/node/)
+# Node.js
 
 ## 基本信息
 
@@ -37,4 +37,5 @@ $ docker run -it --rm \
 
 ## Dockerfile
 
-请到 https://github.com/docker-library/docs/tree/master/node 查看。
+请到 [https://github.com/docker-library/docs/tree/master/node](https://github.com/docker-library/docs/tree/master/node) 查看。
+

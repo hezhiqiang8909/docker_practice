@@ -1,6 +1,6 @@
-# 树莓派卡片电脑安装 Docker CE
+# Raspberry Pi
 
->警告：切勿在没有配置 Docker APT 源的情况下直接使用 apt 命令安装 Docker.
+> 警告：切勿在没有配置 Docker APT 源的情况下直接使用 apt 命令安装 Docker.
 
 ## 系统要求
 
@@ -10,7 +10,7 @@ Docker CE 支持以下版本的 [Raspbian](https://www.raspberrypi.org/downloads
 
 * Raspbian Stretch
 
-*注：* `Raspbian` 是树莓派的开发与维护机构 [树莓派基金会](http://www.raspberrypi.org/) 推荐用于树莓派的首选系统，其基于 `Debian`。
+_注：_ `Raspbian` 是树莓派的开发与维护机构 [树莓派基金会](http://www.raspberrypi.org/) 推荐用于树莓派的首选系统，其基于 `Debian`。
 
 ## 使用 APT 安装
 
@@ -56,7 +56,7 @@ $ sudo add-apt-repository \
 #    stable"
 ```
 
->以上命令会添加稳定版本的 Docker CE APT 源，如果需要测试或每日构建版本的 Docker CE 请将 stable 改为 test 或者 nightly。
+> 以上命令会添加稳定版本的 Docker CE APT 源，如果需要测试或每日构建版本的 Docker CE 请将 stable 改为 test 或者 nightly。
 
 ### 安装 Docker CE
 
@@ -78,7 +78,7 @@ $ sudo sh get-docker.sh --mirror Aliyun
 # $ sudo sh get-docker.sh --mirror AzureChinaCloud
 ```
 
-执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定(stable)版本安装在系统中。
+执行这个命令后，脚本就会自动的将一切准备工作做好，并且把 Docker CE 的稳定\(stable\)版本安装在系统中。
 
 ## 启动 Docker CE
 
@@ -140,8 +140,9 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-*注意：* ARM 平台不能使用 `x86` 镜像，查看 Raspbian 可使用镜像请访问 [arm32v7](https://hub.docker.com/u/arm32v7/)。
+_注意：_ ARM 平台不能使用 `x86` 镜像，查看 Raspbian 可使用镜像请访问 [arm32v7](https://hub.docker.com/u/arm32v7/)。
 
 ## 镜像加速
 
 如果在使用过程中发现拉取 Docker 镜像十分缓慢，可以配置 Docker [国内镜像加速](mirror.md)。
+

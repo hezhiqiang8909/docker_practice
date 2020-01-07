@@ -1,4 +1,4 @@
-# 客户端命令(docker)
+# 客户端命令 \(docker\)
 
 ## 客户端命令选项
 
@@ -30,7 +30,7 @@
 * `import`：导入一个文件（典型为 `tar` 包）路径或目录来创建一个本地镜像；
 * `info`：显示一些相关的系统信息；
 * `inspect`：显示一个容器的具体配置信息；
-* `kill`：关闭一个运行中的容器 (包括进程和所有相关资源)；
+* `kill`：关闭一个运行中的容器 \(包括进程和所有相关资源\)；
 * `load`：从一个 tar 包中加载一个镜像；
 * `login`：注册或登录到一个 Docker 的仓库服务器；
 * `logout`：从 Docker 的仓库服务器登出；
@@ -63,8 +63,10 @@
 * `wait`：阻塞直到一个容器终止，然后输出它的退出符。
 
 ## 一张图总结 Docker 的命令
-![Docker 命令总结](../_images/cmd_logic.png)
+
+![Docker &#x547D;&#x4EE4;&#x603B;&#x7ED3;](../../.gitbook/assets/cmd_logic.png)
 
 ## 参考
 
 * [官方文档](https://docs.docker.com/engine/reference/commandline/cli/)
+

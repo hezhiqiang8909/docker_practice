@@ -101,7 +101,7 @@ REPOSITORY                         TAG                 IMAGE ID            CREAT
 
 对于使用 `systemd` 的系统，请在 `/etc/docker/daemon.json` 中写入如下内容（如果文件不存在请新建该文件）
 
-```json
+```javascript
 {
   "registry-mirror": [
     "https://dockerhub.azk8s.cn"
@@ -112,8 +112,9 @@ REPOSITORY                         TAG                 IMAGE ID            CREAT
 }
 ```
 
->注意：该文件必须符合 `json` 规范，否则 Docker 将不能启动。
+> 注意：该文件必须符合 `json` 规范，否则 Docker 将不能启动。
 
 ## 其他
 
 对于 Docker Desktop for Windows 、 Docker Desktop for Mac 在设置中的 `Docker Engine` 中进行编辑 ，增加和上边一样的字符串即可。
+
